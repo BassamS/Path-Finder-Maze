@@ -1,5 +1,3 @@
-# 13:45 https://www.youtube.com/watch?v=txKBWtvV99Y
-
 import curses
 from curses import wrapper
 import queue
@@ -24,7 +22,7 @@ def print_maze(maze, stdscr, path=[]):
 
     for i, row in enumerate(maze):
         for j, value in enumerate(row):
-            stdscr.addstr(i, j, value)
+            stdscr.addstr(i, j*2, value, BLUE)
 
 
 def main(stdscr):
