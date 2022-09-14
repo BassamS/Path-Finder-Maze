@@ -19,21 +19,23 @@ maze = [
 
 
 def print_maze(maze, stdscr, path=[]):
-    BLUE = curses.init_pair(1)
-    RED = curses.init_pair(2)
+    BLUE = curses.color_pair(1)
+    RED = curses.color_pair(2)
 
-    for i in enumerate(maze):
+    for i, row in enumerate(maze):
+        for j, value in enumerate(row):
+            stdscr.addstr(i, j, value)
 
 
 def main(stdscr):
     curses.init_pair(1, curses.COLOR_BLUE, curses.COLOR_BLACK)
     curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)
-    blue_and_black = curses.color_pair(1)
+    # blue_and_black = curses.color_pair(1)
 
-    # stdscr.clear()
-    # stdscr.addstr(5, 5, 'Hello World!', blue_and_black)
-    # stdscr.refresh()
-    # stdscr.getch()
+    stdscr.clear()
+    print_maze(maze, stdscr)
+    stdscr.refresh()
+    stdscr.getch()
 
 
 wrapper(main)
